@@ -25,8 +25,15 @@ class App extends Component {
     ]
   };
 
-  markComplete = () => {
-    console.log(this.title);
+  markComplete = id => {
+    this.setState({
+      todos: this.state.todos.map(item => {
+        if (item.id === id) {
+          item.completed = !item.completed;
+        }
+        return item;
+      })
+    });
   };
 
   render() {
@@ -70,12 +77,17 @@ class TodoItem extends Component {
   };
 
   render() {
+    const { id, title } = this.props.todo;
+
     return (
       <div style={this.getStyle()}>
         <h2>
-          <input type="checkbox" onChange={this.props.markComplete}></input>
+          <input
+            type="checkbox"
+            onChange={this.props.markComplete.bind(this, id)}
+          ></input>
 
-          {this.props.todo.title}
+          {title}
         </h2>
       </div>
     );
