@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 
+import Header from "./components/Header";
 /*
 
 */
@@ -45,6 +46,7 @@ class App extends Component {
   render() {
     return (
       <>
+        <Header />
         <div className="App"></div>
         <Todos
           todos={this.state.todos}
