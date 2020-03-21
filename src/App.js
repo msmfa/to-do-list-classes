@@ -9,7 +9,7 @@ class App extends Component {
     todos: [
       {
         id: 1,
-        title: "take out the trash",
+        title: "Learn React",
         completed: false
       },
       {
@@ -36,12 +36,21 @@ class App extends Component {
     });
   };
 
+  deleteTodo = id => {
+    this.setState({
+      todos: [...this.state.todos.filter(item => item.id !== id)]
+    });
+  };
+
   render() {
-    console.log(this.state.todos);
     return (
       <>
         <div className="App"></div>
-        <Todos todos={this.state.todos} markComplete={this.markComplete} />
+        <Todos
+          todos={this.state.todos}
+          markComplete={this.markComplete}
+          deleteTodo={this.deleteTodo}
+        />
       </>
     );
   }
@@ -63,6 +72,7 @@ class Todos extends Component {
         key={item.id}
         todo={item}
         markComplete={this.props.markComplete}
+        deleteTodo={this.props.deleteTodo}
       />
     ));
   }
@@ -88,6 +98,12 @@ class TodoItem extends Component {
           ></input>
 
           {title}
+          <button
+            onClick={this.props.deleteTodo.bind(this, id)}
+            className="delete-button"
+          >
+            X
+          </button>
         </h2>
       </div>
     );
