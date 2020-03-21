@@ -43,9 +43,13 @@ class App extends Component {
     });
   };
 
+  addTodo = (title) => {
+    console.log(title)
+  }
   render() {
     return (
       <>
+        <Addtodo addTodo={this.addTodo} />
         <Header />
         <div className="App"></div>
         <Todos
@@ -108,6 +112,41 @@ class TodoItem extends Component {
           </button>
         </h2>
       </div>
+    );
+  }
+}
+
+class Addtodo extends Component {
+
+  state = {
+    title: ""
+  }
+  OnSubmit = (e) => {
+    e.preventDefault();
+    this.props.addTodo(this.state.title)
+    //passes up to Addtodo componant
+    this.setState({ title: "" })
+
+  }
+
+
+  OnChange = (e) => this.setState({
+    title: e.target.value
+  })
+
+  render() {
+    return (
+      <form className="form-container" onSubmit={this.OnSubmit}>
+        <input
+          className="input"
+          type="text"
+          name="title"
+          placeholder="Add To Do..."
+          value={this.state.title}
+          onChange={this.OnChange}
+        ></input>
+        <input className="Add-todo" type="submit" value="Submit"></input>
+      </form>
     );
   }
 }
