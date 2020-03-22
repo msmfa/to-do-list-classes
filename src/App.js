@@ -2,31 +2,11 @@ import React, { Component } from "react";
 
 import Header from "./components/Header";
 import { v4 as uuidv4 } from "uuid"
-/*
-
-*/
-
 
 
 class App extends Component {
   state = {
-    todos: [
-      {
-        id: uuidv4(),
-        title: "Learn React",
-        completed: false
-      },
-      {
-        id: uuidv4(),
-        title: "Learn React",
-        completed: false
-      },
-      {
-        id: uuidv4(),
-        title: "Play Monopoly",
-        completed: false
-      }
-    ]
+    todos: []
   };
 
   markComplete = id => {
@@ -57,14 +37,15 @@ class App extends Component {
   render() {
     return (
       <>
-        <Addtodo addTodo={this.addTodo} />
         <Header />
-        <div className="App"></div>
-        <Todos
-          todos={this.state.todos}
-          markComplete={this.markComplete}
-          deleteTodo={this.deleteTodo}
-        />
+        <Addtodo addTodo={this.addTodo} />
+        <div className="App">
+          <Todos
+            todos={this.state.todos}
+            markComplete={this.markComplete}
+            deleteTodo={this.deleteTodo}
+          />
+        </div>
       </>
     );
   }
@@ -104,14 +85,18 @@ class TodoItem extends Component {
     const { id, title } = this.props.todo;
 
     return (
-      <div style={this.getStyle()}>
-        <h2>
+      <div>
+        <h2 className="container">
+
           <input
             type="checkbox"
             onChange={this.props.markComplete.bind(this, id)}
+            className="checkbox"
           ></input>
+          <div style={this.getStyle()} className="to-do-text">
+            {title}
+          </div>
 
-          {title}
           <button
             onClick={this.props.deleteTodo.bind(this, id)}
             className="delete-button"
@@ -129,13 +114,16 @@ class Addtodo extends Component {
   state = {
     title: ""
   }
-  OnSubmit = (e) => {
-    e.preventDefault();
-    this.props.addTodo(this.state.title)
-    //passes up to Addtodo componant
-    this.setState({ title: "" })
 
-  }
+  OnSubmit = e => {
+    e.preventDefault();
+    if (this.state.title === "") {
+      return
+    } else {
+      this.props.addTodo(this.state.title);
+      this.setState({ title: "" });
+    }
+  };
 
 
   OnChange = (e) => this.setState({

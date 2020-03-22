@@ -1,15 +1,62 @@
 body {
-  margin: 2em;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  font-size: 10px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
 }
-
 /*---APP COMPONENT---*/
+
+.input {
+  display: flex;
+  justify-content: space-between;
+  width: 70vw;
+  height: 9vh;
+  margin: 1em auto;
+  padding: 0;
+  padding-left: 1em;
+  border: none;
+  border-bottom: 1px solid grey;
+}
+
+.Add-todo {
+  display: none;
+}
+
+.header {
+  text-align: center;
+}
+.container {
+  display: flex;
+  align-items: center;
+  width: 70vw;
+  margin: auto;
+  border-bottom: 1px solid rgb(240, 230, 230);
+}
+
+.delete-button {
+  color: red;
+  margin-left: auto;
+  font-size: 0.6em;
+  border: none;
+}
+
+.checkbox {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 28px;
+  left: 0;
+  top: 0;
+  width: 28px;
+}
+.to-do-text {
+  font-size: 1em;
+  font-weight: 100;
+}
