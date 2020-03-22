@@ -21,7 +21,6 @@ select:focus {
   padding: 0;
   padding-left: 1em;
   border: none;
-  border-bottom: 1px solid grey;
 }
 
 .Add-todo {
@@ -60,4 +59,19 @@ select:focus {
 .date-display {
   text-align: center;
   color: grey;
+}
+
+@media only screen and (min-width: 790px) {
+  .date-display,
+  .header {
+    text-align: left;
+    margin-left: 15vw;
+  }
+  .header {
+    font-size: 3em;
+  }
+  .date-display {
+    font-size: 1.1em;
+    margin-left: 16vw;
+  }
 }
