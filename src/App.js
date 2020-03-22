@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import Display from "./components/DisplayDate"
 import Header from "./components/Header";
 import { v4 as uuidv4 } from "uuid"
 
@@ -40,6 +40,7 @@ class App extends Component {
     return (
       <>
         <Header />
+        <Display />
         <Addtodo addTodo={this.addTodo} />
         <div className="App">
           <Todos
