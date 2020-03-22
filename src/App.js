@@ -1,10 +1,12 @@
-import React, { Component } from "react";
+import React, { Component, useEffect } from "react";
 
 import Header from "./components/Header";
 import { v4 as uuidv4 } from "uuid"
 
+const LOCAL_STORAGE_KEY = "todoapp.todos"
 
 class App extends Component {
+
   state = {
     todos: []
   };
