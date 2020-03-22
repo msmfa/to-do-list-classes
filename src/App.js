@@ -77,7 +77,8 @@ class TodoItem extends Component {
   getStyle = () => {
     if (this.props.todo.completed)
       return {
-        textDecoration: "line-through"
+        textDecoration: "line-through",
+        color: "rgb(202, 202, 202)"
       };
   };
 

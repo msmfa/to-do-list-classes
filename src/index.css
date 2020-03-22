@@ -30,6 +30,7 @@ select:focus {
 
 .header {
   text-align: center;
+  margin-top: 2em;
 }
 .container {
   display: flex;
@@ -37,6 +38,7 @@ select:focus {
   width: 70vw;
   margin: auto;
   border-bottom: 1px solid rgb(240, 230, 230);
+  padding-top: 0.5em;
 }
 
 .delete-button {
